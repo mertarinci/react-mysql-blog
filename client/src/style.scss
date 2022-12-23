@@ -1,7 +1,10 @@
 $lightGreen: #b9e7e7;
 
 .app {
+  display: flex;
+  justify-content: center;
   .container {
+    width: 1024px;
     // Login and Register Page
 
     .auth {
@@ -22,7 +25,7 @@ $lightGreen: #b9e7e7;
         display: flex;
         flex-direction: column;
         background-color: #fff;
-        width: 200px;
+        width: 300px;
         padding: 60px;
         gap: 20px;
 
@@ -32,6 +35,12 @@ $lightGreen: #b9e7e7;
           border-bottom: 1px solid teal;
           font-size: 14px;
           text-align: center;
+          &:focus {
+            outline: none;
+            &::placeholder {
+              color: transparent;
+            }
+          }
         }
 
         button {
@@ -48,6 +57,29 @@ $lightGreen: #b9e7e7;
           &:active {
             opacity: 0.4;
           }
+        }
+
+        p {
+          font-size: 12px;
+          color: red;
+          text-align: center;
+        }
+
+        span {
+          font-size: 12px;
+          text-align: center;
+        }
+      }
+    }
+
+    .navbar {
+      .container {
+        padding: 10px 0px;
+        display: flex;
+        justify-content: space-between;
+        .logo {
+        }
+        .links {
         }
       }
     }
