@@ -13,7 +13,7 @@ $lightGreen: #b9e7e7;
       color: inherit;
 
       &:hover {
-        opacity: 0.8;
+        color: teal;
       }
     }
 
@@ -83,6 +83,8 @@ $lightGreen: #b9e7e7;
     }
 
     .navbar {
+      border-bottom: 1px solid black;
+
       .container {
         padding: 10px 0px;
         display: flex;
@@ -147,6 +149,7 @@ $lightGreen: #b9e7e7;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border-top: 1px solid black;
       img {
         width: 100px;
       }
@@ -157,6 +160,7 @@ $lightGreen: #b9e7e7;
     // HOME PAGE
 
     .home {
+      margin-bottom: 50px;
       .posts {
         margin-top: 50px;
         display: flex;
@@ -216,6 +220,27 @@ $lightGreen: #b9e7e7;
             border: 2px solid teal;
             font-size: 13px;
             font-weight: 500;
+            position: relative;
+            overflow: hidden;
+
+            &:hover::after {
+              transform: translateX(100%);
+            }
+
+            &::after {
+              content: "Click Me";
+              color: white;
+              height: 100%;
+              width: 100%;
+              background-color: teal;
+              position: absolute;
+              top: 0;
+              left: -100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              transition: 0.5s all;
+            }
           }
         }
       }
