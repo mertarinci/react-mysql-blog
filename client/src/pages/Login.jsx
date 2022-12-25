@@ -2,16 +2,19 @@ import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useContext } from "react";
+import { AuthContext } from "../context/authContext";
 
 const Login = () => {
   const [input, setInput] = useState({
     username: "",
     password: "",
   });
-
   const [err, setError] = useState(null);
-
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
+
+  // Handle Functions
 
   const handleChange = (e) => {
     setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -19,11 +22,8 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      await axios.post("http://localhost:8080/api/auth/login", input, {
-        withCredentials: true,
-      });
+      login(input);
       navigate("/");
     } catch (err) {
       console.log(err);
