@@ -1,12 +1,12 @@
+import * as dotenv from 'dotenv'
 import mysql from "mysql"
 
-
-
+dotenv.config()
 export const db = mysql.createPool({
     connectionLimit: 10,
-    host: "145.14.156.192",
-    user: "u223769533_blogroot",
-    password: "4084Mertob!",
-    database: "u223769533_blog"
+    host: process.env.HOST,
+    user: process.env.USERNAME,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE
 })
 
