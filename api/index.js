@@ -35,7 +35,11 @@ const upload = multer({ storage: storage })
 
 app.post('/api/upload', upload.single('file'), function (req, res) {
     const file = req.file
-    res.status(200).json(file.filename)
+    try {
+        file ? res.status(200).json(file.filename) : res.status(500).json("You didn't upload a photo. You can edit again and add photo.")
+    } catch (err) {
+        res.status(500).json("You have to upload photo.")
+    }
 })
 
 const PORT = process.env.PORT

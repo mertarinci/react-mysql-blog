@@ -43,6 +43,12 @@ const Single = () => {
     }
   };
 
+  const getText = (html) => {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+
+    return doc.body.textContent;
+  };
+
   return (
     <div className="single">
       <div className="content">
@@ -56,7 +62,11 @@ const Single = () => {
           </div>
           {currentUser?.username === post.username && (
             <div className="edit">
-              <Link className="link" to={`/write?edit=2`} state={post}>
+              <Link
+                className="link"
+                to={`/write?edit=${post?.id}`}
+                state={post}
+              >
                 <i className="fa-solid fa-pen-to-square"></i>
               </Link>
               <i onClick={handleDelete} className="fa-solid fa-trash link"></i>
@@ -64,7 +74,7 @@ const Single = () => {
           )}
         </div>
         <h1>{post?.title}</h1>
-        {post?.desc}
+        {getText(post?.desc)}
       </div>
       <Menu cat={post?.cat} />
     </div>

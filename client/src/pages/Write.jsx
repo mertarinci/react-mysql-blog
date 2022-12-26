@@ -24,7 +24,7 @@ const Write = () => {
       );
       return res.data;
     } catch (err) {
-      console.log(err);
+      alert(err.response.data);
     }
   };
 
@@ -52,7 +52,7 @@ const Write = () => {
               desc: value,
               cat,
               img: file ? imgUrl : "",
-              date: moment(Date.now()).format("YYYY-MM-DD:mm:ss"),
+              date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
             },
             { withCredentials: true }
           );

@@ -35,19 +35,23 @@ const Navbar = () => {
             <h6>CINEMA</h6>
           </Link>
           <div className="userBar">
-            <span>{currentUser?.username}</span>
+            {currentUser && (
+              <span className="username">{currentUser?.username}</span>
+            )}
             {currentUser ? (
               <span onClick={logout}>Logout</span>
             ) : (
-              <Link className="link" to="/login">
+              <Link className="link login" to="/login">
                 Login
               </Link>
             )}
-            <span className="write">
-              <Link className="link" to="/write">
-                Write
-              </Link>
-            </span>
+            {currentUser && (
+              <span className="write">
+                <Link className="link" to="/write">
+                  Write
+                </Link>
+              </span>
+            )}
           </div>
         </div>
       </div>

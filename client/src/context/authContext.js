@@ -19,7 +19,8 @@ export const AuthContextProvider = ({ children }) => {
             withCredentials: true,
         });
         setCurrentUser(res.data)
-        console.log(res.data)
+
+
     };
 
     const logout = async () => {
@@ -28,6 +29,8 @@ export const AuthContextProvider = ({ children }) => {
             withCredentials: true
         });
         setCurrentUser(null)
+
+        window.location.reload()
     };
 
     useEffect(() => {

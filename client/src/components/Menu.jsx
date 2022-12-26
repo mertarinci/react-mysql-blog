@@ -32,10 +32,13 @@ const Menu = ({ cat }) => {
           postId != post.id && (
             <div className="post" key={post.id}>
               <Link to={`/post/${post.id}`}>
-                <img src={post.img} alt="" />
+                <img src={`../uploads/${post.img}`} alt="" />
               </Link>
               <h3>{post.title}</h3>
-              <button>Read More</button>
+
+              <Link to={`/post/${post.id}`}>
+                <button>Read More</button>
+              </Link>
             </div>
           )
       )}

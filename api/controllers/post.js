@@ -84,7 +84,7 @@ export const editPost = (req, res) => {
         if (err) return res.status(403).json("Not valid token.")
 
         const postId = req.params.id
-        const q = "UPDATE posts SET `title`=? `desc`=? `img`=? `cat`=? WHERE `id` = ? AND `uid` = ?"
+        const q = "UPDATE posts SET `title`=?, `desc`=?, `img`=?, `cat`=? WHERE `id` = ? AND `uid` = ?"
 
         const values = [
             req.body.title,
