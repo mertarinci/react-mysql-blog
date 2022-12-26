@@ -35,8 +35,14 @@ const Navbar = () => {
             <h6>CINEMA</h6>
           </Link>
           <div className="userBar">
-            <span>{currentUser.username}</span>
-            <span onClick={logout()}>Logout</span>
+            <span>{currentUser?.username}</span>
+            {currentUser ? (
+              <span onClick={logout}>Logout</span>
+            ) : (
+              <Link className="link" to="/login">
+                Login
+              </Link>
+            )}
             <span className="write">
               <Link className="link" to="/write">
                 Write
