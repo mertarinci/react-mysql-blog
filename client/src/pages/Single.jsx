@@ -1,15 +1,35 @@
+import axios from "axios";
 import React from "react";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import Menu from "../components/Menu";
 
 const Single = () => {
+  const [post, setPost] = useState([]);
+  const location = useLocation();
+
+  const postId = location.pathname.split("/")[2];
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(
+          `http://localhost:8080/api/posts/${postId}`
+        );
+        setPost(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchData();
+  }, [postId]);
+
   return (
     <div className="single">
       <div className="content">
-        <img
-          src="https://images.pexels.com/photos/7008010/pexels-photo-7008010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-          alt=""
-        />
+        <img src={post?.img} alt="" />
         <div className="user">
           <img
             src="https://images.pexels.com/photos/7008010/pexels-photo-7008010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
@@ -17,14 +37,14 @@ const Single = () => {
           />
 
           <div className="info">
-            <span>Username</span>
-            <p>Posted 2 days ago.</p>
+            <span>{post.username}</span>
+            <p>Posted </p>
           </div>
           <div className="edit">
             <Link to={`write?edit=2`}>
-              <i class="fa-solid fa-pen-to-square"></i>
+              <i className="fa-solid fa-pen-to-square"></i>
             </Link>
-            <i class="fa-solid fa-trash"></i>
+            <i className="fa-solid fa-trash"></i>
           </div>
         </div>
         <h1>Lorem ipsum dolor sit amet.</h1>
