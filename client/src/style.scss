@@ -403,6 +403,29 @@ $lightGreen: #b9e7e7;
         flex-direction: column;
         gap: 20px;
 
+        .buttons {
+          padding: 0px 30px;
+          display: flex;
+          justify-content: space-between;
+
+          :first-child {
+            cursor: pointer;
+            color: teal;
+            background-color: white;
+            border: 1px solid teal;
+            padding: 3px 5px;
+            font-size: 14 px;
+          }
+          :last-child {
+            cursor: pointer;
+            color: white;
+            background-color: teal;
+            border: 1px solid teal;
+            padding: 3px 5px;
+            font-size: 14px;
+          }
+        }
+
         .item {
           border: 1px solid lightgray;
           padding: 10px;
@@ -420,29 +443,6 @@ $lightGreen: #b9e7e7;
           .file {
             text-decoration: none;
             cursor: pointer;
-          }
-
-          .buttons {
-            padding: 0px 10px;
-            display: flex;
-            justify-content: space-between;
-
-            :first-child {
-              cursor: pointer;
-              color: teal;
-              background-color: white;
-              border: 1px solid teal;
-              padding: 3px 5px;
-              font-size: 14 px;
-            }
-            :last-child {
-              cursor: pointer;
-              color: white;
-              background-color: teal;
-              border: 1px solid teal;
-              padding: 3px 5px;
-              font-size: 14px;
-            }
           }
 
           .cat {
